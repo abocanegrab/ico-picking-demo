@@ -1,0 +1,1 @@
+import{j as t,a as o}from"./index-DtAIr5ck.js";import{a5 as x,a6 as k,a7 as n,a8 as r}from"./ui-IsRUgsQ-.js";const l=({checked:e,onCheckedChange:s,disabled:c,size:C,children:a})=>t(r,{checked:e,onCheckedChange:h=>s(h.checked===!0),disabled:c,size:C,children:[o(x,{}),o(k,{}),a!=null&&o(n,{children:a})]});export{l as C};
