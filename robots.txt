@@ -1,0 +1,3 @@
+# Demostración privada: no se indexa.
+User-agent: *
+Disallow: /

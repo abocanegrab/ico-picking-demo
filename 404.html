@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="/ico-picking-demo/favicon.svg" />
+    <title>ICO Logística — Demostración</title>
+    <script>
+      // GitHub Pages no sabe servir una aplicación de una sola página: una ruta interna como
+      // /estacion/embarques/1 no existe como archivo y cae aquí. Se guarda la ruta en la query y
+      // se rebota a la raíz de la app, que la restaura antes de que arranque el router.
+      //
+      // Sin esto, recargar la pantalla o abrir un enlace compartido darían 404 — justo lo que hace
+      // cualquiera que quiera mostrarle una pantalla a otra persona.
+      ;(() => {
+        var l = window.location
+        var base = "/ico-picking-demo/"
+        var resto = l.pathname.indexOf(base) === 0 ? l.pathname.slice(base.length) : ""
+        var app = resto.split("/")[0]
+
+        // Solo se rebota hacia algo que existe. Una dirección inventada muestra el aviso de abajo
+        // en vez de reintentar contra sí misma para siempre.
+        if (app !== "estacion" && app !== "pda") return
+
+        var interna = resto.slice(app.length + 1)
+        l.replace(
+          l.protocol + "//" + l.host + base + app + "/?/" + interna.replace(/&/g, "~and~") + (l.search ? "&" + l.search.slice(1) : "") + l.hash
+        )
+      })()
+    </script>
+    <style>
+      :root {
+        color-scheme: light;
+        --fondo: #faf9f7;
+        --texto: #1c1917;
+        --suave: #57534e;
+        --acento: #ea580c;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          color-scheme: dark;
+          --fondo: #1c1917;
+          --texto: #f5f5f4;
+          --suave: #d6d3d1;
+          --acento: #fb923c;
+        }
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: var(--fondo);
+        color: var(--texto);
+        font: 15px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      }
+      main {
+        max-width: 32rem;
+        text-align: center;
+      }
+      h1 {
+        font-size: 1.4rem;
+        margin: 0 0 0.5rem;
+      }
+      p {
+        color: var(--suave);
+        margin: 0 0 1.6rem;
+      }
+      a {
+        display: inline-block;
+        background: var(--acento);
+        color: #fff;
+        text-decoration: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Esa dirección no existe</h1>
+      <p>Puede que el enlace esté incompleto.</p>
+      <a href="/ico-picking-demo/">Ir al inicio de la demostración</a>
+    </main>
+  </body>
+</html>

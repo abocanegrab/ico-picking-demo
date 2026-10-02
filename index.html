@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="favicon.svg" />
+    <title>ICO Logística — Demostración</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --fondo: #faf9f7;
+        --panel: #ffffff;
+        --borde: #e7e5e4;
+        --texto: #1c1917;
+        --suave: #57534e;
+        --tenue: #a8a29e;
+        --acento: #ea580c;
+        --acento-suave: #fff7ed;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          color-scheme: dark;
+          --fondo: #1c1917;
+          --panel: #262322;
+          --borde: #3a3633;
+          --texto: #f5f5f4;
+          --suave: #d6d3d1;
+          --tenue: #8a827c;
+          --acento: #fb923c;
+          --acento-suave: #2d2019;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--fondo);
+        color: var(--texto);
+        font: 15px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        padding: 48px 20px 64px;
+      }
+      main {
+        max-width: 52rem;
+        margin: 0 auto;
+      }
+      .marca {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        color: var(--acento);
+        margin: 0 0 0.6rem;
+      }
+      h1 {
+        font-size: clamp(1.6rem, 4vw, 2.1rem);
+        line-height: 1.2;
+        margin: 0 0 0.7rem;
+        letter-spacing: -0.02em;
+      }
+      .entrada {
+        color: var(--suave);
+        max-width: 38rem;
+        margin: 0 0 2.5rem;
+      }
+      h2 {
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--tenue);
+        margin: 2.75rem 0 1rem;
+      }
+      .apps {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      }
+      .app {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        background: var(--panel);
+        border: 1px solid var(--borde);
+        border-radius: 12px;
+        padding: 1.4rem 1.5rem;
+        transition: border-color 0.15s, transform 0.15s;
+      }
+      .app:hover {
+        border-color: var(--acento);
+        transform: translateY(-2px);
+      }
+      .app strong {
+        display: block;
+        font-size: 1.05rem;
+        margin-bottom: 0.3rem;
+      }
+      .app span {
+        color: var(--suave);
+        font-size: 0.9rem;
+      }
+      .app em {
+        display: block;
+        margin-top: 0.7rem;
+        color: var(--acento);
+        font-style: normal;
+        font-weight: 600;
+        font-size: 0.85rem;
+      }
+      .tabla-envoltura {
+        overflow-x: auto;
+        border: 1px solid var(--borde);
+        border-radius: 12px;
+        background: var(--panel);
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        min-width: 34rem;
+        font-size: 0.9rem;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 0.7rem 1rem;
+        border-bottom: 1px solid var(--borde);
+      }
+      tbody tr:last-child td {
+        border-bottom: 0;
+      }
+      th {
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--tenue);
+        font-weight: 600;
+      }
+      code {
+        font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+        font-size: 0.86em;
+        background: var(--acento-suave);
+        color: var(--acento);
+        padding: 0.12rem 0.4rem;
+        border-radius: 5px;
+      }
+      .notas {
+        display: grid;
+        gap: 0.9rem;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      .notas li {
+        background: var(--panel);
+        border: 1px solid var(--borde);
+        border-left: 3px solid var(--acento);
+        border-radius: 0 10px 10px 0;
+        padding: 0.9rem 1.1rem;
+        color: var(--suave);
+        font-size: 0.92rem;
+      }
+      .notas b {
+        color: var(--texto);
+      }
+      footer {
+        margin-top: 3rem;
+        padding-top: 1.2rem;
+        border-top: 1px solid var(--borde);
+        color: var(--tenue);
+        font-size: 0.85rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="marca">ICO LOGÍSTICA</p>
+      <h1>Sistema de picking y pesaje</h1>
+      <p class="entrada">
+        Una demostración para recorrer y opinar. Funciona sin servidor: los datos son de prueba y viven en este navegador, así que puede trabajar sin
+        miedo a romper nada.
+      </p>
+
+      <div class="apps">
+        <a class="app" href="estacion/">
+          <strong>Estación</strong>
+          <span>Pesaje, empaque y etiquetas. Reparto de zonas y monitoreo para el administrador.</span>
+          <em>Entrar →</em>
+        </a>
+        <a class="app" href="pda/">
+          <strong>PDA</strong>
+          <span>Retiro de productos en cámara. Pensada para el terminal de mano.</span>
+          <em>Entrar →</em>
+        </a>
+      </div>
+
+      <h2>Usuarios</h2>
+      <div class="tabla-envoltura">
+        <table>
+          <thead>
+            <tr>
+              <th>Usuario</th>
+              <th>Clave</th>
+              <th>Qué ve</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>admin</code></td>
+              <td><code>Admin123!</code></td>
+              <td>Todo: reparto, monitoreo y administración</td>
+            </tr>
+            <tr>
+              <td><code>supervisor</code></td>
+              <td><code>Supervisor123!</code></td>
+              <td>Reparto, monitoreo y reapertura</td>
+            </tr>
+            <tr>
+              <td><code>operador.congelados</code></td>
+              <td><code>Operador123!</code></td>
+              <td>Su zona, con trabajo ya empezado</td>
+            </tr>
+            <tr>
+              <td><code>operador.refrigerados</code></td>
+              <td><code>Operador123!</code></td>
+              <td>Su zona, asignada y sin iniciar</td>
+            </tr>
+            <tr>
+              <td><code>operador.secos</code></td>
+              <td><code>Operador123!</code></td>
+              <td>Sin asignación: así se ve la pantalla vacía</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Antes de empezar</h2>
+      <ul class="notas">
+        <li>
+          <b>Nada de esto sale de su navegador.</b> No hay servidor ni base de datos: lo que haga se guarda localmente y sobrevive a recargas. Para
+          volver al punto de partida está el botón <b>Reiniciar datos</b> del aviso naranja.
+        </li>
+        <li>
+          <b>Las reglas son las de verdad.</b> Solo el responsable inicia y finaliza su zona, el peso fuera de tolerancia avisa, un ítem no se empaca
+          dos veces y un embarque no se manda a SAP con zonas sin terminar. Si algo le parece mal, vale la pena decirlo: así se comportará en planta.
+        </li>
+        <li>
+          <b>Lo que no está.</b> No hay balanza conectada, así que el pesaje cae al ingreso manual —que es su comportamiento real cuando falta el
+          hardware— y nada llega a SAP.
+        </li>
+        <li>
+          <b>Empiece por el embarque BTZ-338</b>, que está a medio trabajar a propósito, para ver los estados intermedios y no solo el caso limpio.
+        </li>
+      </ul>
+
+      <footer>Versión de demostración · Los nombres de clientes y productos son inventados.</footer>
+    </main>
+  </body>
+</html>
